@@ -20,12 +20,12 @@
     <div class="shell">
         <div class="header__inner">
             <div class="logo">
-                <a href="../index.php">Kristian G.</a>
+                <a href="index.php">Kristian G.</a>
             </div>
 
             <ul class="menu">
-                <li><a href="../demo.php">Demo page</a></li>
-                <li><a href="../about.php"">About Page</a></li>
+                <li><a href="demo.php">Demo page</a></li>
+                <li><a href="about.php"">About Page</a></li>
                 <?php if(!isset($_SESSION['username'])) { ?>
                 <li><a href="signUpForm.php"">Sign Up</a></li>
                 <li class="login-dropdown">Login</li>

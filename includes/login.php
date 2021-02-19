@@ -14,8 +14,9 @@
         $user = new UsersController();
         $userData = $user->checkUser($un, $password);
 
-        // Afer js validation.
-        $_SESSION['username'] = $un;
-        header('location: ../index.php');
-
+        // Afer js validation. I will handle it in the front end.
+        if(isset($_SESSION['username'])) {
+            $_SESSION['username'] = $un;
+            header('location: ../index.php');
+        }
     }

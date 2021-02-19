@@ -9,6 +9,7 @@
             </div>
         </div>
     </div>
+
     <script src="includes/scripts/signUpValidation.js"></script>
     <script src="includes/scripts/login.js"></script>
 </body>

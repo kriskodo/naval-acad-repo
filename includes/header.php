@@ -1,5 +1,6 @@
 <?php
     include 'Autoloader.php';
+
     session_start();
 ?>
 
@@ -15,7 +16,7 @@
     <link rel="stylesheet" href="includes/styles/signup.css">
     <link rel="stylesheet" href="includes/styles/login.css">
     <link rel="stylesheet" href="includes/styles/footer.css">
-
+<body>
 <div class="header">
     <div class="shell">
         <div class="header__inner">
@@ -38,17 +39,15 @@
                                 </div>
 
                                 <div class="form__body">
-                                    <form action="includes/login.php" method="POST" id="login-form">
+                                    <form action="includes/login.php" method="POST" id="form-login">
                                         <div class="form__field">
-                                            <div class="form__err"></div>
-                                            <label for="uname" class="form__label">Username</label>
-                                            <input type="text" name="uname" class="form__input form__input--small" autocomplete="off">
+                                            <label for="login-uname" class="form__label">Username</label>
+                                            <input type="text" name="login-uname" class="form__input form__input--small" autocomplete="off">
                                         </div>
 
                                         <div class="form__field">
-                                            <div class="form__err"></div>
-                                            <label for="password" class="form__label">Password</label>
-                                            <input type="password" name="password" class="form__input form__input--small" autocomplete="off">
+                                            <label for="login-password" class="form__label">Password</label>
+                                            <input type="password" name="login-password" class="form__input form__input--small" autocomplete="off">
                                         </div>
 
                                         <div class="form__btn">
@@ -72,5 +71,10 @@
             </ul>
         </div>
     </div>
+<!--    --><?php
+//    if(!isset($_SESSION['username'])) { ?>
+<!--        <div class="header__login-error">-->
+<!--            <p>This username does not exist</p>-->
+<!--        </div>-->
+<!--    --><?php //} ?>
 </div>
-    <body>

@@ -4,19 +4,22 @@
     include_once '../classes/Users.class.php';
     include_once '../classes/UsersController.class.php';
     include_once '../classes/UsersView.class.php';
+    $logError = 0;
 
     session_start();
 
-    if (isset($_POST['uname']) &&
-        isset($_POST['password'])) {
-        $un = $_POST['uname'];
-        $password = $_POST['password'];
+    if (isset($_POST['login-uname']) &&
+        isset($_POST['login-password'])) {
+        $un = $_POST['login-uname'];
+        $password = $_POST['login-password'];
         $user = new UsersController();
         $userData = $user->checkUser($un, $password);
 
         // Afer js validation. I will handle it in the front end.
-        if(isset($_SESSION['username'])) {
+        if(!(empty($userData))) {
             $_SESSION['username'] = $un;
-            header('location: ../index.php');
+
         }
     }
+
+    header('Location: ../index.php');

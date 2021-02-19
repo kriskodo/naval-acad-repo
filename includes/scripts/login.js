@@ -1,30 +1,45 @@
-window.onload = function() {
-    const triggerLogin = document.getElementsByClassName('login-dropdown')[0];
-    const loginForm = document.getElementsByClassName('login-form')[0];
-    let entered = false;
 
-    if(triggerLogin && loginForm)
+    const triggerLogin = document.getElementsByClassName('login-dropdown')[0];
+    const loginFormDiv = document.getElementsByClassName('login-form')[0];
+    let entered = false;
+    console.log('login');
+
+    if(triggerLogin && loginFormDiv)
     {
         triggerLogin.addEventListener('mouseover', function () {
-            loginForm.classList.add('showing');
+            loginFormDiv.classList.add('showing');
+            entered = true;
         });
 
 
-        loginForm.addEventListener('mouseover', function () {
+        loginFormDiv.addEventListener('mouseover', function () {
             entered = true;
-            loginForm.classList.add('showing');
+            loginFormDiv.classList.add('showing');
         })
 
-        loginForm.addEventListener('mouseleave', function () {
+        loginFormDiv.addEventListener('mouseleave', function () {
             entered = false;
             setTimeout(function () {
                 if (!entered) {
-                    loginForm.classList.remove('showing');
+                    loginFormDiv.classList.remove('showing');
                 }
             }, 1000);
         });
-
-        // Validate
     }
 
-}
+    const formId = document.getElementById('form-login');
+    const loginError = document.getElementsByClassName('header__login-error')[0];
+
+    formId.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const usernameVal = document.getElementsByName('login-uname')[0].value;
+        const passwordVal = document.getElementsByName('login-password')[0].value;
+        console.log(usernameVal);
+        console.log(passwordVal);
+
+        if (usernameVal.length >= 6 && passwordVal.length >= 6) {
+            this.submit();
+        } else {
+            loginError.innerHTML = "The username and password do not meet the requirements.";
+        }
+    })

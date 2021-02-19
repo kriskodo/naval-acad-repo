@@ -1,6 +1,7 @@
-window.onload = function() {
-    const submit = document.getElementById('signup-form');
 
+    const submit = document.getElementById('signup-form');
+    console.log('signup');
+    if(submit !== null) {
     submit.addEventListener('submit', function(e) {
         e.preventDefault();
         const inputArr = document.getElementsByClassName('form__input');
@@ -13,8 +14,10 @@ window.onload = function() {
         const lname = document.getElementsByName('lname')[0].value;
         const age = document.getElementsByName('age')[0].value;
         let valid = true;
+        console.log('signup');
 
         if (!usernameCheck.exec(username)) {
+            console.log(inputArr);
             valid = false;
             inputArr[0].style = "border: 1px solid red";
             errArray[0].innerHTML = "Username must be between 6 and 15 characters."
@@ -47,7 +50,7 @@ window.onload = function() {
         }
 
         if(valid) {
-            this.submit();
+            e.submit();
         }
     });
-}
+    }

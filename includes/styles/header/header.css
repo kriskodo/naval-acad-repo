@@ -4,6 +4,7 @@
     padding: 20px 0;
     font-family: "Courier New", sans-serif;
     margin-bottom: 40px;
+    position: relative;
 }
 
 .header .header__inner {
@@ -41,4 +42,15 @@ ul.menu {
 
 li + li {
     margin-left: 20px;
+}
+
+.header__login-error {
+    position: absolute;
+    bottom: -10px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    z-index: 999;
 }

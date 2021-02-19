@@ -1,0 +1,69 @@
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form .form__title {
+    margin-bottom: 20px;
+}
+
+.form .form__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.form .form__label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form .form__field {
+    margin-bottom: 10px;
+}
+
+.form .form__input {
+    width: 300px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    transition: box-shadow .1s ease;
+}
+
+.form .form__input.form__input--small {
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+}
+
+.form .form__input:focus {
+    box-shadow: 3px 2px 3px #222;
+}
+
+.form .form__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form .form__btn button {
+    border: 1px solid #222;
+    cursor: pointer;
+}
+
+.form .form__err {
+    background: #FFC199; /*Change background color*/
+    border-left: 9px solid #FF6600; /*Change left border color*/
+    color: #2c3e50; /*Change text color*/
+    padding: 10px 5px;
+    display: none;
+}

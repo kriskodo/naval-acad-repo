@@ -1,0 +1,44 @@
+.header {
+    background-color: #2D1E2F;
+    color: #fff;
+    padding: 20px 0;
+    font-family: "Courier New", sans-serif;
+    margin-bottom: 40px;
+}
+
+.header .header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a {
+    color: #fff;
+    position: relative;
+}
+
+.header a:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -3px;
+    left: 0;
+    background-color: #FCF6B1;
+    transition: all .3s ease;
+}
+
+.header a:hover:before {
+    content: "";
+    width: 100%;
+}
+
+ul.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li + li {
+    margin-left: 20px;
+}

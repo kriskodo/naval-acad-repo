@@ -1,0 +1,27 @@
+.menu {
+    position: relative;
+}
+
+.login-form {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: rgba(45, 30, 47, 0.9);
+    padding: 20px 80px;
+    margin-top: -20px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .5s ease, transform .5s ease;
+    transform: translateY(-20px);
+    z-index: 999;
+}
+
+.login-dropdown {
+    cursor: pointer;
+}
+
+.showing {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}

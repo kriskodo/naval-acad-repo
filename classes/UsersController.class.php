@@ -12,7 +12,7 @@ class UsersController extends Users {
         $this->setUser($un, $password, $fname, $lname, $age);
     }
 
-    public function checkUser($name, $password) {
-        return $this->getUser($name, $password);
+    public function checkUser($name) {
+        return $this->getUser($name);
     }
 }

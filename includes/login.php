@@ -8,18 +8,24 @@
 
     session_start();
 
-    if (isset($_POST['login-uname']) &&
-        isset($_POST['login-password'])) {
-        $un = $_POST['login-uname'];
-        $password = $_POST['login-password'];
-        $user = new UsersController();
-        $userData = $user->checkUser($un, $password);
+    $un = $_POST['login-uname'];
+    $password = $_POST['login-password'];
 
-        // Afer js validation. I will handle it in the front end.
-        if(!(empty($userData))) {
-            $_SESSION['username'] = $un;
+    $user = new UsersController();
+    $userData = $user->checkUser($un);
 
+    if(!(empty($userData))) {
+        $storedHashPassword = $userData[0]['password'];
+
+        if (!password_verify($password, $storedHashPassword) === $storedHashPassword) {
+            header('location: ../index.php');
+            die();
         }
+
+        $_SESSION['username'] = $un;
+        $logError = 0;
+    } else {
+        $logError = 1;
     }
 
     header('Location: ../index.php');

@@ -48,9 +48,26 @@ li + li {
     position: absolute;
     bottom: -10px;
     background-color: red;
-    display: flex;
+    opacity: 0;
+    display: none;
     justify-content: center;
     align-content: center;
     width: 100%;
     z-index: 999;
+}
+
+.error-effect {
+    display: flex;
+    animation: disappear 3s ease;
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
 }

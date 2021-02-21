@@ -1,8 +1,9 @@
 
     const submit = document.getElementById('signup-form');
-    console.log('signup');
-    if(submit !== null) {
-    submit.addEventListener('submit', function(e) {
+    const submitBtn = document.getElementById('signUpBtn');
+
+    if(submit !== null && submitBtn !== null) {
+    submitBtn.addEventListener('click', function(e) {
         e.preventDefault();
         const inputArr = document.getElementsByClassName('form__input');
         const errArray = document.getElementsByClassName('form__err');
@@ -50,7 +51,7 @@
         }
 
         if(valid) {
-            e.submit();
+            submit.submit();
         }
     });
     }

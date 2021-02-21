@@ -3,10 +3,10 @@
 <?php
 
 class Users extends Dbh {
-    protected function getUser($name, $password) {
-        $sql = "SELECT * FROM users WHERE username = ? && password = ?";
+    protected function getUser($name) {
+        $sql = "SELECT * FROM users WHERE username = ?";
         $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$name, $password]);
+        $stmt->execute([$name]);
 
         $results = $stmt->fetchAll();
         return $results; // Returning an assoc array.

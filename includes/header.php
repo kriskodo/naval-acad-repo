@@ -1,6 +1,5 @@
 <?php
     include 'Autoloader.php';
-    $logError = 999;
     session_start();
 ?>
 
@@ -71,10 +70,4 @@
             </ul>
         </div>
     </div>
-    <?php
-    if(!isset($_SESSION['username']) && $logError = 1) { ?>
-        <div class="header__login-error">
-            <p>This username does not exist</p>
-        </div>
-    <?php } ?>
 </div>

@@ -4,7 +4,6 @@
     include_once '../classes/Users.class.php';
     include_once '../classes/UsersController.class.php';
     include_once '../classes/UsersView.class.php';
-    $logError = 0;
 
     session_start();
 
@@ -16,16 +15,13 @@
 
     if(!(empty($userData))) {
         $storedHashPassword = $userData[0]['password'];
-
-        if (!password_verify($password, $storedHashPassword) === $storedHashPassword) {
-            header('location: ../index.php');
-            die();
+        if (password_verify($password, $storedHashPassword)) {
+            $_SESSION['username'] = $un;
+            header('Location: ../index.php');
+        } else {
+            header('Location: ../index.php');
+            return;
         }
-
-        $_SESSION['username'] = $un;
-        $logError = 0;
     } else {
-        $logError = 1;
+        header('Location: ../index.php');
     }
-
-    header('Location: ../index.php');

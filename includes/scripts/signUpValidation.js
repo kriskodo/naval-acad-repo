@@ -14,44 +14,45 @@
         const fname = document.getElementsByName('fname')[0].value;
         const lname = document.getElementsByName('lname')[0].value;
         const age = document.getElementsByName('age')[0].value;
-        let valid = true;
         console.log('signup');
 
         if (!usernameCheck.exec(username)) {
-            console.log(inputArr);
-            valid = false;
             inputArr[0].style = "border: 1px solid red";
             errArray[0].innerHTML = "Username must be between 6 and 15 characters."
             errArray[0].style = "display: block;";
+            return;
         } else {
             errArray[0].style = "display: none;";
-            inputArr[0].style = "border: 1px solid green";
         }
 
-        if (!(password.length >= 6 && password === rpassword)) {
-            valid = false;
-            errArray[1].innerHTML = "Please."
+        if (!(password.length >= 6)) {
+            errArray[1].innerHTML = "Passwords must consist of at least 6 symbols.";
             errArray[1].style="display: block";
+            return;
+        } else if(password !== rpassword){
+            errArray[1].innerHTML = "Passwords do not match.";
+            errArray[1].style = "display: block";
+            return;
         } else {
             errArray[1].style="display: none";
         }
 
-        if (!(fname && lname && age)) {
-            valid = false;
+        if (!(fname && lname)) {
             errArray[3].innerHTML = "Names cannot be blank."
             errArray[3].style="display: block";
+            return;
+        } else {
+            errArray[3].style="display: none";
         }
 
         if(isNaN(age) || age === "") {
-            valid = false;
             errArray[5].innerHTML = "Not a valid age."
             errArray[5].style="display: block";
+            return;
         } else {
             errArray[5].style="display: none";
         }
 
-        if(valid) {
-            submit.submit();
-        }
+        submit.submit();
     });
     }
